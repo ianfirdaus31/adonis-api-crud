@@ -52,6 +52,26 @@ class OrderController {
   }
 
   /**
+   * Show a list of all orders by customer.
+   * GET orders
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+  async byCustomer ({ request, response }) {
+    let orders = await Order.findAll({
+      attributes: ['id', 'customer_id', 'order_date', 'total_price'],
+      where: {
+        customer_id: request.input('customer_id')
+      }
+    })
+
+    response.json({ data: orders })
+  }
+
+  /**
    * Create/save a new order.
    * POST orders
    *

@@ -27,5 +27,6 @@ Route.group(() => {
   Route.resource('customers', 'CustomerController').apiOnly()
 
   Route.resource('orders', 'OrderController').apiOnly()
+  Route.get('customer-orders', 'OrderController.byCustomer')
 
 }).middleware('accessToken')
