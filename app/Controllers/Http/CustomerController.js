@@ -1,6 +1,15 @@
+'use strict'
+/** @type {import('@adonisjs/framework/src/Env')} */
+
+const Env = use('Env')
+
+const Url = require('url-parse')
+
+const DATABASE_URL = new Url(Env.get('DATABASE_URL'))
+
 const Sequelize = require('sequelize')
 
-const sequelize = new Sequelize('postgres://postgres:12345@localhost:5432/riliv-crud')
+const sequelize = new Sequelize(`${DATABASE_URL}`)
 
 const Model = Sequelize.Model
 
