@@ -19,3 +19,7 @@ const Route = use('Route')
 Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
+
+Route.resource('customers', 'CustomerController').apiOnly()
+
+Route.resource('orders', 'OrderController').apiOnly()
