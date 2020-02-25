@@ -20,6 +20,12 @@ Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
 
-Route.resource('customers', 'CustomerController').apiOnly()
+Route.get('get-access-token', 'AccessTokenController.generate')
 
-Route.resource('orders', 'OrderController').apiOnly()
+Route.group(() => {
+
+  Route.resource('customers', 'CustomerController').apiOnly()
+
+  Route.resource('orders', 'OrderController').apiOnly()
+
+}).middleware('accessToken')
