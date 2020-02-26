@@ -9,8 +9,9 @@ Use the following commands to setup this project
 ```bash
 1. git clone <this repo>
 2. npm install
-3. adonis migration:run
-4. adonis serve --dev
+3. cp .env.example .env
+4. adonis migration:run
+5. adonis serve --dev
 ```
 
 ##### Enjoy..!!!
